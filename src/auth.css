@@ -1,0 +1,58 @@
+/* 🌍 BACKGROUND */
+.auth-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f7ff, #eef2f7);
+  display: flex;
+  align-items: center;
+}
+
+/* 📦 CONTAINER */
+.auth-container {
+  max-width: 450px;
+}
+
+/* 🧾 CARD */
+.auth-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.05);
+}
+
+/* 🏷️ TITLE */
+.auth-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1e3a8a;
+  font-weight: 600;
+}
+
+/* 🔘 BUTTON */
+.auth-btn {
+  background: #3b82f6;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+  transition: 0.3s;
+}
+
+.auth-btn:hover {
+  background: #2563eb;
+}
+
+/* ✨ INPUT */
+.form-control {
+  border-radius: 8px;
+}
+
+/* 🔗 LINKS */
+a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

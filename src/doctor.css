@@ -1,0 +1,61 @@
+/* 🌍 PAGE */
+.doctor-page {
+  background: transparent;
+}
+
+/* 🧾 TITLE */
+.doctor-title {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #1e3a8a;
+  font-weight: 600;
+}
+
+/* 📦 DOCTOR BOX */
+.doctor-box {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.doctor-box:hover {
+  box-shadow: 0px 8px 20px rgba(59, 130, 246, 0.1);
+  transform: translateY(-3px);
+}
+
+/* 👨‍⚕️ IMAGE */
+.doctor-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+
+/* 🩺 SPECIALIST */
+.spec {
+  color: #3b82f6;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* 📄 TEXT */
+.doctor-box p {
+  margin: 3px 0;
+  color: #6b7280;
+}
+
+/* 🔘 BUTTON */
+.book-btn {
+  background: #3b82f6;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: white;
+  transition: 0.3s;
+}
+
+.book-btn:hover {
+  background: #2563eb;
+}
