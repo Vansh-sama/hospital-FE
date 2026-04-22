@@ -8,7 +8,7 @@ function Dashboard() {
   const [stats, setStats] = useState({});
 
   const fetchStats = async () => {
-    const res = await fetch("http://localhost:5000/api/dashboard");
+    const res = await fetch("https://hospital-be-qeur.onrender.com/api/dashboard");
     const data = await res.json();
     setStats(data);
   };
@@ -22,7 +22,7 @@ function Dashboard() {
     } else {
       fetchStats();
     }
-  }, []);
+  }, [navigate]); // ✅ FIX
 
   return (
     <Container className="mt-5">

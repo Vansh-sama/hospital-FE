@@ -33,7 +33,7 @@ function Appointment() {
     };
 
     try {
-      const res = await fetch("http://localhost:5000/api/appointments/book", {
+      const res = await fetch("https://hospital-be-qeur.onrender.com/api/appointments/book", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

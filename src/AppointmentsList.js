@@ -7,16 +7,16 @@ function AppointmentsList() {
   const navigate = useNavigate();
   const [appointments, setAppointments] = useState([]);
 
-  const hasChecked = useRef(false); // 🔥 prevent double run
+  const hasChecked = useRef(false);
 
   const fetchAppointments = async () => {
-    const res = await fetch("http://localhost:5000/api/appointments");
+    const res = await fetch("https://hospital-be-qeur.onrender.com/api/appointments");
     const data = await res.json();
     setAppointments(data);
   };
 
   useEffect(() => {
-    if (hasChecked.current) return;   // 🛑 stop second run
+    if (hasChecked.current) return;
     hasChecked.current = true;
 
     const user = JSON.parse(localStorage.getItem("user"));
@@ -27,13 +27,13 @@ function AppointmentsList() {
     } else {
       fetchAppointments();
     }
-  }, []);
+  }, [navigate]); // ✅ FIX
 
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm("Are you sure to delete?");
     if (!confirmDelete) return;
 
-    const res = await fetch(`http://localhost:5000/api/appointments/${id}`, {
+    const res = await fetch(`https://hospital-be-qeur.onrender.com/api/appointments/${id}`, { // ✅ FIX
       method: "DELETE"
     });
 
