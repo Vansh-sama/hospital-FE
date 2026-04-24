@@ -12,6 +12,9 @@ function Appointment() {
     name: "",
     phone: "",
     email: "",
+    age: "",
+    gender: "",
+    address: "",
     date: "",
     time: "",
     problem: ""
@@ -44,17 +47,20 @@ function Appointment() {
       const data = await res.json();
 
       if (res.ok) {
-        // ✅ SAME ALERT STYLE
         alert(`Appointment Booked!
 Doctor: ${doctor?.name}
 Patient: ${formData.name}
+Age: ${formData.age}
+Gender: ${formData.gender}
 Email: ${formData.email}`);
 
-        // 🔥 reset form
         setFormData({
           name: "",
           phone: "",
           email: "",
+          age: "",
+          gender: "",
+          address: "",
           date: "",
           time: "",
           problem: ""
@@ -75,7 +81,6 @@ Email: ${formData.email}`);
 
       <h2 className="appointment-title">Book Appointment</h2>
 
-      {/* 👨‍⚕️ SELECTED DOCTOR */}
       {doctor && (
         <div className="doctor-info">
           <h5>Doctor: {doctor.name}</h5>
@@ -85,6 +90,7 @@ Email: ${formData.email}`);
 
       <Form onSubmit={submitForm} className="appointment-form">
 
+        {/* NAME + PHONE */}
         <Row>
           <Col md={6}>
             <Form.Group className="mb-3">
@@ -132,6 +138,55 @@ Email: ${formData.email}`);
           </Col>
         </Row>
 
+        {/* AGE + GENDER */}
+        <Row>
+          <Col md={6}>
+            <Form.Group className="mb-3">
+              <Form.Label>Age</Form.Label>
+              <Form.Control
+                type="number"
+                name="age"
+                value={formData.age}
+                placeholder="Enter Age"
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
+          </Col>
+
+          <Col md={6}>
+            <Form.Group className="mb-3">
+              <Form.Label>Gender</Form.Label>
+              <Form.Select
+                name="gender"
+                value={formData.gender}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </Form.Select>
+            </Form.Group>
+          </Col>
+        </Row>
+
+        {/* ADDRESS */}
+        <Form.Group className="mb-3">
+          <Form.Label>Address</Form.Label>
+          <Form.Control
+            as="textarea"
+            rows={2}
+            name="address"
+            value={formData.address}
+            placeholder="Enter Address"
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
+
+        {/* DATE + TIME */}
         <Row>
           <Col md={6}>
             <Form.Group className="mb-3">
@@ -160,6 +215,7 @@ Email: ${formData.email}`);
           </Col>
         </Row>
 
+        {/* PROBLEM */}
         <Form.Group className="mb-3">
           <Form.Label>Problem / Symptoms</Form.Label>
           <Form.Control
