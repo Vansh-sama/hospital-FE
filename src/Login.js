@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { Form, Button, Container } from "react-bootstrap";
+import { Form, Button, Container, Spinner } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import "./auth.css";
-
 
 function Login() {
 
@@ -13,6 +12,8 @@ function Login() {
     password: ""
   });
 
+  const [loading, setLoading] = useState(false); // 🔥 loading state
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -22,6 +23,8 @@ function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
+    setLoading(true); // 🔥 start loading
 
     try {
       const res = await fetch("https://hospital-be-qeur.onrender.com/api/users/login", {
@@ -37,16 +40,17 @@ function Login() {
       if (res.ok) {
         alert("✅ " + data.message);
 
-        // 🔐 save user
         localStorage.setItem("user", JSON.stringify(data.user));
 
-        navigate("/");  // home page
+        navigate("/");
       } else {
         alert("❌ " + data.message);
       }
 
     } catch (error) {
       alert("Server error");
+    } finally {
+      setLoading(false); // 🔥 stop loading
     }
   };
 
@@ -79,8 +83,14 @@ function Login() {
               />
             </Form.Group>
 
-            <Button type="submit" className="auth-btn w-100">
-              Login
+            <Button type="submit" className="auth-btn w-100" disabled={loading}>
+              {loading ? (
+                <>
+                  <Spinner size="sm" animation="border" /> Logging in...
+                </>
+              ) : (
+                "Login"
+              )}
             </Button>
 
           </Form>

@@ -18,13 +18,6 @@ function Home() {
           <h1 className="hospital-name">City Care Hospital</h1>
           <p className="tagline">Your Health, Our Responsibility</p>
 
-          {/* ✅ FIXED BUTTON */}
-          <Button
-            className="main-btn"
-            onClick={() => navigate("/appointment")}
-          >
-            Book Appointment
-          </Button>
 
         </Container>
       </div>
